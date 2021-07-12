@@ -21,7 +21,7 @@ function modelLoaded()
 
 function draw()
 {
-    mage(video,0,0, 400,400)
+    image(video,0,0, 400,400)
 }
 
 function gotPoses(results)
