@@ -1,6 +1,6 @@
 function preload()
 {
-
+lipstick=loadImage("https://i.postimg.cc/qvJtKMcz/l1.png")
 }
 function setup()
 {
@@ -18,10 +18,12 @@ function modelLoaded()
 {
     console.log(" The poseNet model is loaded")
 }
-
+lipstick_x=0;
+lipstick_y=0;
 function draw()
 {
     image(video,0,0, 400,400)
+    image(lipstick, lipstick_x, lipstick_y,30,30)
 }
 
 function gotPoses(results)
@@ -29,8 +31,12 @@ function gotPoses(results)
 if(results.length>0)
 {
     console.log(results)
-    console.log("The lips x=" + results[0].pose.lips.x);
-    console.log("The lips y=" + results[0].pose.lips.y);
+    lipstick_x=results[0].pose.nose.x;
+    lipstick_y=results[0].pose.nose.y;
+    console.log("The lips x=" + lipstick_x+10);
+    console.log("The lips y=" + lipstick_y+10);
+ 
+;
 
 
 }
